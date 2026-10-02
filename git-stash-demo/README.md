@@ -4,12 +4,18 @@ A tiny notes manager (`notes_app.py`) used to demonstrate the `git stash` workfl
 pausing unfinished work, switching branches for an urgent fix, and restoring the
 work afterwards.
 
-## Running the tests
+## Running
 
 ```bash
 cd git-stash-demo
-python -m unittest -v
+python stash_workflow_demo.py   # replays the full stash workflow in a temp repo and checks each step
+python -m unittest -v           # app tests + the stash workflow test
 ```
+
+`stash_workflow_demo.py` runs the real git commands: an uncommitted feature,
+`stash push`, a hotfix on another branch, returning to the original branch, then
+`stash list`, `show`, `apply`, `drop` and `pop`. It asserts that `apply` keeps the
+stash entry and `pop` removes it.
 
 ## The scenario
 
