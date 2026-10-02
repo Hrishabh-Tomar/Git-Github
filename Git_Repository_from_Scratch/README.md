@@ -78,13 +78,12 @@ python -m unittest
 
 ## Commit History Overview
 
-1. Add README and `.gitignore`
-2. Add `Task` data model with priority validation
-3. Add JSON storage layer
-4. Add task operations and CLI entry point
-5. Add `pending_tasks` helper and unit tests
-6. Add `--pending` flag to the `list` command
-7. Document features, usage and project structure in the README
+1. `first commit`
+2. `Add task tracker project`
+3. `Add pending task filtering`
+4. `Ignore generated task files`
+5. `Document project history`
+6. `Create README.md for task tracker project`
 
 ## Author
 
