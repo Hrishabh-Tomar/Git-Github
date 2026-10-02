@@ -51,7 +51,11 @@ class EnrollmentTests(BaseTestCase):
         with self.assertRaises(DuplicateEnrollmentError): Enrollment.enroll(self.student, self.course)
     def test_full_course_rejected_and_not_counted(self):
         Enrollment.enroll(self.student, self.course)
-        with self.assertRaises(CourseFullError): Enrollment.enroll(Mentor("M", "m@b.com", "P"), self.course)
+        with self.assertRaises(CourseFullError): Enrollment.enroll(Student("M", "m@b.com"), self.course)
+    def test_non_student_rejected_without_partial_state(self):
+        with self.assertRaises(InvalidDataError): Enrollment.enroll(self.mentor, self.course)
+        self.assertEqual(self.course.enrolled_count, 0)
+        self.assertEqual(Enrollment.total_enrollments(), 0)
     def test_complete_sets_grade_and_status(self):
         enrollment = Enrollment.enroll(self.student, self.course); enrollment.complete(88); self.assertEqual((enrollment.status, enrollment.letter_grade), ("Completed", "B"))
     def test_cannot_complete_twice(self):
