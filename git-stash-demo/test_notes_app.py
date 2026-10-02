@@ -21,6 +21,18 @@ class NotesAppTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 notes_app.complete_note(bad)
 
+    def test_search_notes_is_case_insensitive(self):
+        notes_app.add_note("Buy MILK")
+        notes_app.add_note("Call mom")
+        self.assertEqual(
+            notes_app.search_notes("milk"),
+            [{"text": "Buy MILK", "done": False}],
+        )
+
+    def test_search_notes_no_match(self):
+        notes_app.add_note("Call mom")
+        self.assertEqual(notes_app.search_notes("milk"), [])
+
 
 if __name__ == "__main__":
     unittest.main()
