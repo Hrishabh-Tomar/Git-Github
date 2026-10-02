@@ -16,6 +16,11 @@ class NotesAppTests(unittest.TestCase):
         notes_app.complete_note(0)
         self.assertTrue(notes_app.list_notes()[0]["done"])
 
+    def test_complete_note_invalid_index_raises(self):
+        for bad in (0, -1, 5):
+            with self.assertRaises(ValueError):
+                notes_app.complete_note(bad)
+
 
 if __name__ == "__main__":
     unittest.main()
