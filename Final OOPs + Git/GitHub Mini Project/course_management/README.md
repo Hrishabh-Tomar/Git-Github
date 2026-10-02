@@ -24,7 +24,7 @@ A Python OOP project that models a small online learning platform: users (studen
 - Safe enrollment: all inputs are validated before any change, so a rejected enrollment never uses a seat or changes any counter
 - Role-specific dashboards through polymorphism
 - Custom exception hierarchy for clear error handling
-- 24 unit tests, with no third-party dependencies
+- 27 unit tests, with no third-party dependencies
 
 ## Requirements
 
@@ -71,7 +71,7 @@ Run every command from the project folder in step 2. The tests and demo import t
 ```
 
 - `Student` and `Mentor` **inherit** from the abstract `User` class (is-a).
-- A `Mentor` teaches many `Course` objects, and each `Course` has one assigned `Mentor`.
+- A `Mentor` teaches many `Course` objects, and each `Course` has one assigned `Mentor`; reassignment updates both sides.
 - A `Student` has many `Enrollment` objects.
 - Each `Enrollment` links exactly one `Student` to exactly one `Course`, and holds the status and grade for that pair.
 - A `Course` keeps the list of enrolled students and controls seat availability.
@@ -145,7 +145,7 @@ Run the full demonstration with `python main.py`. It prints seven sections cover
 python -m unittest -v
 ```
 
-All 24 tests should pass. They cover validation, abstraction, polymorphism, seat limits, duplicate enrollments, grading, and a regression check that a rejected enrollment leaves seats, student enrollments and the enrollment counter unchanged.
+All 27 tests should pass. They cover validation, abstraction, polymorphism, mentor reassignment, seat limits, duplicate enrollments, grading, and regression checks that rejected operations leave relationships and enrollment state unchanged.
 
 ## Project Structure
 
