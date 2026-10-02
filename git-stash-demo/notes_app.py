@@ -17,6 +17,11 @@ def complete_note(index):
     _notes[index]["done"] = True
 
 
+def search_notes(keyword):
+    keyword = keyword.lower()
+    return [note for note in _notes if keyword in note["text"].lower()]
+
+
 def reset():
     """Clear all notes. Used between test runs."""
     _notes.clear()
