@@ -3,6 +3,7 @@
 from datetime import date
 
 from .exceptions import InvalidDataError
+from .users import Student
 
 
 class Enrollment:
@@ -44,6 +45,8 @@ class Enrollment:
 
     @classmethod
     def enroll(cls, student, course):
+        if not isinstance(student, Student):
+            raise InvalidDataError("Only Student users can enroll in a course.")
         course.register_student(student)
         enrollment = cls(student, course)
         student.add_enrollment(enrollment)
