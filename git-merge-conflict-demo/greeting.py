@@ -2,7 +2,7 @@
 
 
 def greet(name):
-    return f"Hello, {name}"
+    return f"Welcome, {name}!"
 
 
 def farewell(name):
