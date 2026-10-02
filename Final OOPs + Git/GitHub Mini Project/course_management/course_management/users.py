@@ -114,6 +114,10 @@ class Mentor(User):
         if course not in self._courses:
             self._courses.append(course)
 
+    def remove_course(self, course):
+        if course in self._courses:
+            self._courses.remove(course)
+
     def get_role(self):
         return "Mentor"
 
