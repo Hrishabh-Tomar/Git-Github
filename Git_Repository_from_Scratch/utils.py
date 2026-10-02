@@ -20,6 +20,9 @@ def complete_task(tasks, task_id):
             return task
     raise KeyError(f"No task with id {task_id}")
 
+def pending_tasks(tasks):
+    """Return only the tasks that are not done yet."""
+    return [t for t in tasks if not t.done]
 
 def format_task(task):
     mark = "x" if task.done else " "
