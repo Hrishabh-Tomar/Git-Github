@@ -12,6 +12,8 @@ def list_notes():
 
 
 def complete_note(index):
+    if not 0 <= index < len(_notes):
+        raise ValueError(f"No note at index {index}.")
     _notes[index]["done"] = True
 
 
