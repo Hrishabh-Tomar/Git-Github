@@ -23,6 +23,10 @@ python -m unittest -v
 5. The developer goes back to the feature branch, brings in the fix, and restores
    the stashed work.
 
+The actual terminal output from every step is in
+[STASH_SESSION_LOG.md](STASH_SESSION_LOG.md). Stashes are local, so they don't
+appear in commit history.
+
 ## Commands used, in order
 
 ```bash
