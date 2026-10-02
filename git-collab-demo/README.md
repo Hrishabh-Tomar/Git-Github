@@ -12,10 +12,18 @@ cloning, branching, pushing, pull requests, code review, and merging.
 
 ## Project
 
-A tiny command-line calculator (`calculator.py`) will be added by Developer B.
+A tiny command-line calculator (`calculator.py`), added by Developer B, with
+unit tests in `test_calculator.py`.
 
 ## Running
 
 ```bash
 python git-collab-demo/calculator.py
+```
+
+## Testing
+
+```bash
+cd git-collab-demo
+python -m unittest -v
 ```
