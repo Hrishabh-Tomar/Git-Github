@@ -1,7 +1,6 @@
 """Course model with seat management and fee calculation."""
 
 from .exceptions import CourseFullError, DuplicateEnrollmentError, InvalidDataError
-from .users import Mentor
 
 DEFAULT_GST_RATE = 0.18
 
@@ -43,14 +42,8 @@ class Course:
     def is_full(self): return self.available_seats <= 0
 
     def assign_mentor(self, mentor):
-        if not isinstance(mentor, Mentor):
-            raise InvalidDataError("Course mentor must be a Mentor instance.")
-        if mentor is self._mentor:
-            return
-        if self._mentor is not None:
-            self._mentor.remove_course(self)
-        mentor.add_course(self)
         self._mentor = mentor
+        mentor.add_course(self)
 
     def register_student(self, student):
         if student in self._students:

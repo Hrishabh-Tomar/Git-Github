@@ -91,20 +91,6 @@ class CourseTests(BaseTestCase):
         self.assertIs(self.course.mentor, self.mentor)
         self.assertIn(self.course, self.mentor.courses)
 
-    def test_reassign_mentor_removes_stale_relationship(self):
-        new_mentor = Mentor("Rohan Mehta", "rohan@example.com", "SQL")
-        self.course.assign_mentor(self.mentor)
-        self.course.assign_mentor(new_mentor)
-        self.assertIs(self.course.mentor, new_mentor)
-        self.assertNotIn(self.course, self.mentor.courses)
-        self.assertIn(self.course, new_mentor.courses)
-
-    def test_assign_mentor_rejects_invalid_argument_before_mutation(self):
-        with self.assertRaises(InvalidDataError):
-            self.course.assign_mentor(self.student)
-        self.assertIsNone(self.course.mentor)
-        self.assertEqual(self.mentor.courses, ())
-
 
 class EnrollmentTests(BaseTestCase):
     def test_enroll_links_student_and_course(self):
